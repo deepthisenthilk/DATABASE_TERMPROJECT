@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HomeScope - Login</title>
+
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>HomeScope</h1>
+        <h2>Login</h2>
+
+        <!-- Show error only if backend sends one -->
+        {{#error}}
+            <p style="color: red;">{{error}}</p>
+        {{/error}}
+
+        <!-- Login form -->
+        <form action="/login" method="post">
+
+            <!-- Email input -->
+            <input type="email" name="email" placeholder="Email" required>
+
+            <!-- Password input -->
+            <input type="password" name="password" placeholder="Password" required>
+
+            <!-- Submit button -->
+            <button type="submit">Login</button>
+        </form>
+
+        <!-- Signup link -->
+        <p>
+            Don't have an account?
+            <a href="/signup">Sign up</a>
+        </p>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HomeScope - Search</title>
+
+    <!-- CSS file -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <h1>Property Search</h1>
+
+    <!-- Navigation bar -->
+    <nav>
+        <a href="/search">Search</a> |
+        <a href="/dashboard">Dashboard</a> |
+        <a href="/saved-properties">Saved Properties</a>
+    </nav>
+
+    <hr>
+
+    <!-- SEARCH FORM -->
+    <form action="/search" method="get">
+
+        <!-- City input -->
+        <label>City:</label>
+        <input type="text" name="city">
+
+        <!-- Min price -->
+        <label>Min Price:</label>
+        <input type="number" name="minPrice">
+
+        <!-- Max price -->
+        <label>Max Price:</label>
+        <input type="number" name="maxPrice">
+
+        <!-- Bedrooms -->
+        <label>Bedrooms:</label>
+        <input type="number" name="bedrooms">
+
+        <button type="submit">Search</button>
+    </form>
+
+    <hr>
+
+    <h2>Results</h2>
+
+    <!-- LOOP through properties -->
+    {{#properties}}
+
+        <div class="property-card">
+
+            <!-- Address -->
+            <h3>{{streetAddress}}</h3>
+
+            <!-- Location -->
+            <p>{{city}}, {{state}} {{zipCode}}</p>
+
+            <!-- Details -->
+            <p>
+                {{bedrooms}} bd |
+                {{bathrooms}} ba |
+                {{squareFeet}} sqft
+            </p>
+
+            <!-- Price -->
+            <p><strong>${{listPrice}}</strong></p>
+
+            <!-- Status -->
+            <p>Status: {{listingStatus}}</p>
+
+            <!-- Link to details page -->
+            <a href="/property/{{propertyId}}">View Details</a>
+
+        </div>
+
+    {{/properties}}
+
+    <!-- IF NO RESULTS -->
+    {{^properties}}
+        <p>No properties found.</p>
+    {{/properties}}
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HomeScope - Saved Properties</title>
+
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <h1>Saved Properties</h1>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="/search">Search</a> |
+        <a href="/dashboard">Dashboard</a>
+    </nav>
+
+    <hr>
+
+    <!-- Loop through saved properties -->
+    {{#savedProperties}}
+    <div class="property-card">
+
+        <h3>{{streetAddress}}</h3>
+        <p>{{city}}, {{state}} {{zipCode}}</p>
+        <p>{{bedrooms}} bd | {{bathrooms}} ba | {{squareFeet}} sqft</p>
+        <p><strong>${{listPrice}}</strong></p>
+        <p>Status: {{listingStatus}}</p>
+
+        <!-- Link to property details -->
+        <p><a href="/property/{{propertyId}}">View Details</a></p>
+
+        <!-- Remove saved property -->
+        <form action="/saved-properties/remove" method="post">
+            <input type="hidden" name="propertyId" value="{{propertyId}}">
+            <button type="submit">Remove</button>
+        </form>
+
+    </div>
+    {{/savedProperties}}
+
+    <!-- Show message if there are no saved properties -->
+    {{^savedProperties}}
+    <p>You have no saved properties yet.</p>
+    {{/savedProperties}}
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HomeScope - Market Trends Dashboard</title>
+
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <h1>Market Trends Dashboard</h1>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="/search">Search</a> |
+        <a href="/saved-properties">Saved Properties</a>
+    </nav>
+
+    <hr>
+
+    <!-- First dashboard table -->
+    <h2>Average Price by City</h2>
+    <table>
+        <tr>
+            <th>City</th>
+            <th>Total Listings</th>
+            <th>Average Price</th>
+        </tr>
+
+        <!-- Loop through marketStats -->
+        {{#marketStats}}
+        <tr>
+            <td>{{city}}</td>
+            <td>{{totalListings}}</td>
+            <td>${{avgPrice}}</td>
+        </tr>
+        {{/marketStats}}
+
+        <!-- If no dashboard data -->
+        {{^marketStats}}
+        <tr>
+            <td colspan="3">No market statistics available.</td>
+        </tr>
+        {{/marketStats}}
+    </table>
+
+    <br>
+
+    <!-- Second dashboard table -->
+    <h2>Average Price Per Sqft</h2>
+    <table>
+        <tr>
+            <th>City</th>
+            <th>Average Price Per Sqft</th>
+        </tr>
+
+        <!-- Loop through pricePerSqft -->
+        {{#pricePerSqft}}
+        <tr>
+            <td>{{city}}</td>
+            <td>${{avgPricePerSqft}}</td>
+        </tr>
+        {{/pricePerSqft}}
+
+        <!-- If no data -->
+        {{^pricePerSqft}}
+        <tr>
+            <td colspan="2">No price-per-square-foot data available.</td>
+        </tr>
+        {{/pricePerSqft}}
+    </table>
+
+</body>
+</html>

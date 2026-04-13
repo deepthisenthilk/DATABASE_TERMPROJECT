@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HomeScope - Property Details</title>
+
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <!-- Back link -->
+    <p><a href="/search">← Back to Search</a></p>
+
+    <h1>Property Details</h1>
+
+    <!-- Main property info -->
+    <!-- These values come from backend for ONE selected property -->
+    <div class="property-card">
+
+        <h2>{{streetAddress}}</h2>
+
+        <p>{{city}}, {{state}} {{zipCode}}</p>
+
+        <p><strong>Property Type:</strong> {{propertyType}}</p>
+        <p><strong>Bedrooms:</strong> {{bedrooms}}</p>
+        <p><strong>Bathrooms:</strong> {{bathrooms}}</p>
+        <p><strong>Square Feet:</strong> {{squareFeet}}</p>
+        <p><strong>Year Built:</strong> {{yearBuilt}}</p>
+        <p><strong>List Price:</strong> ${{listPrice}}</p>
+        <p><strong>Status:</strong> {{listingStatus}}</p>
+        <p><strong>Days on Market:</strong> {{daysOnMarket}}</p>
+
+        <!-- Save property form -->
+        <!-- Sends selected propertyId to backend -->
+        <form action="/saved-properties/add" method="post">
+            <input type="hidden" name="propertyId" value="{{propertyId}}">
+            <button type="submit">Save Property</button>
+        </form>
+
+    </div>
+
+    <hr>
+
+    <h2>Price History</h2>
+
+    <!-- Table for price history -->
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Price</th>
+        </tr>
+
+        <!-- Loop through priceHistory list -->
+        {{#priceHistory}}
+        <tr>
+            <td>{{recordedDate}}</td>
+            <td>${{price}}</td>
+        </tr>
+        {{/priceHistory}}
+
+        <!-- If no price history exists -->
+        {{^priceHistory}}
+        <tr>
+            <td colspan="2">No price history available.</td>
+        </tr>
+        {{/priceHistory}}
+    </table>
+
+</body>
+</html>
