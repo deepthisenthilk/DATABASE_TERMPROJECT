@@ -1,0 +1,47 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2868
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 CSCI4370 - Database Management\
+Term Project\
+Group 1\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 This application's security is crucial, especially for managing user authentication and protecting private information.\
+\
+Passwords for users are never kept in plain text.\
+\
+Instead, before being entered into the database, passwords are hashed. Since hashing is a one-way operation, the saved value cannot be used to determine the original password.\
+\
+When a user registers:\
+	The user's password is hashed.\
+The users table contains the hashed value.\
+\
+This guarantees that user credentials are safe even in the event that the database is compromised.\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 When logging in:\
+1. The user inputs their password and email address.\
+2. The program obtains the user's saved password hash.\
+3. The same technique is used to hash the password that was entered.\
+4. A comparison is made between the two hashes\
+\
+The user has been successfully authenticated if they match.\
+\
+All database queries are run with PreparedStatements. \
+\
+PreparedStatements guarantee that user-provided data is handled fully as data and not executable SQL code by separating SQL functionality from user input.\
+\
+Example:\
+\
+SELECT * FROM users WHERE email = ?\
+\
+The "?" placeholder is replaced with user input when run.\
+\
+\
+}
