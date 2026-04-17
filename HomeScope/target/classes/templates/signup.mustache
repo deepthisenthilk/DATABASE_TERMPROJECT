@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HomeScope - Sign Up</title>
+
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <h1>HomeScope</h1>
+    <h2>Create Account</h2>
+
+    <!-- Show error if backend sends one -->
+    {{#error}}
+        <p style="color: red;">{{error}}</p>
+    {{/error}}
+
+    <!-- Show success message -->
+    {{#message}}
+        <p style="color: green;">{{message}}</p>
+    {{/message}}
+
+    <!-- Signup form -->
+    <form action="/signup" method="post">
+
+        <!-- Full name -->
+        <label>Full Name:</label>
+        <input type="text" name="fullName" required>
+
+        <!-- Email -->
+        <label>Email:</label>
+        <input type="email" name="email" required>
+
+        <!-- Password -->
+        <label>Password:</label>
+        <input type="password" name="password" required>
+
+        <!-- Submit -->
+        <button type="submit">Sign Up</button>
+    </form>
+
+    <!-- Link back to login -->
+    <p>
+        Already have an account?
+        <a href="/login">Login</a>
+    </p>
+
+</body>
+</html>
