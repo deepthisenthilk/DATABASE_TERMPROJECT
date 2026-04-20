@@ -5,8 +5,8 @@ Users can search for properties, browse comprehensive listings, save their favor
 Property data is stored in a relational database by the system, and SQL queries comprising joins and aggregates are used to deliver insights.
 
 
-1. – Backend (Repositories)
-2.  – Controllers & Services
+1. Joey – Backend (Repositories)
+2. Anthony – Controllers & Services
 3. Reneka – Frontend (Mustache UI)
 4. Anudeepthi – Documentation, Database Creation
 
