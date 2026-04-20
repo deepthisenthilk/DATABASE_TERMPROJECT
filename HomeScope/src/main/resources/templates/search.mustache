@@ -1,42 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>HomeScope - Search</title>
-
-    <!-- CSS file -->
-    <link rel="stylesheet" href="/css/style.css">
+    <title>Search Properties</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
-    <h1>Property Search</h1>
+    <h1>Search Properties</h1>
 
-    <!-- Navigation bar -->
     <nav>
-        <a href="/search">Search</a> |
         <a href="/dashboard">Dashboard</a> |
-        <a href="/saved-properties">Saved Properties</a>
+        <a href="/saved-properties">Saved Properties</a> |
+        <a href="/logout">Logout</a>
     </nav>
 
     <hr>
 
-    <!-- SEARCH FORM -->
     <form action="/search" method="get">
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required>
 
-        <!-- City input -->
-        <label>City:</label>
-        <input type="text" name="city">
+        <label for="minPrice">Min Price:</label>
+        <input type="number" id="minPrice" name="minPrice" min="0" value="0">
 
-        <!-- Min price -->
-        <label>Min Price:</label>
-        <input type="number" name="minPrice">
+        <label for="maxPrice">Max Price:</label>
+        <input type="number" id="maxPrice" name="maxPrice" min="0" value="100000000">
 
-        <!-- Max price -->
-        <label>Max Price:</label>
-        <input type="number" name="maxPrice">
-
-        <!-- Bedrooms -->
-        <label>Bedrooms:</label>
-        <input type="number" name="bedrooms">
+        <label for="bedrooms">Bedrooms:</label>
+        <input type="number" id="bedrooms" name="bedrooms" min="0" value="0">
 
         <button type="submit">Search</button>
     </form>
@@ -45,41 +36,23 @@
 
     <h2>Results</h2>
 
-    <!-- LOOP through properties -->
-    {{#properties}}
+    {{#hasSearch}}
+        {{#properties}}
+            <div class="property-card">
+                <h3>{{streetAddress}}</h3>
+                <p>{{city}}, {{state}} {{zipCode}}</p>
+                <p>{{bedrooms}} bd | {{bathrooms}} ba | {{squareFeet}} sqft</p>
+                <p><strong>${{listPrice}}</strong></p>
+                <p>Status: {{listingStatus}}</p>
+                <a href="/property/{{propertyId}}">View Details</a>
+            </div>
+            <hr>
+        {{/properties}}
 
-        <div class="property-card">
-
-            <!-- Address -->
-            <h3>{{streetAddress}}</h3>
-
-            <!-- Location -->
-            <p>{{city}}, {{state}} {{zipCode}}</p>
-
-            <!-- Details -->
-            <p>
-                {{bedrooms}} bd |
-                {{bathrooms}} ba |
-                {{squareFeet}} sqft
-            </p>
-
-            <!-- Price -->
-            <p><strong>${{listPrice}}</strong></p>
-
-            <!-- Status -->
-            <p>Status: {{listingStatus}}</p>
-
-            <!-- Link to details page -->
-            <a href="/property/{{propertyId}}">View Details</a>
-
-        </div>
-
-    {{/properties}}
-
-    <!-- IF NO RESULTS -->
-    {{^properties}}
-        <p>No properties found.</p>
-    {{/properties}}
+        {{^properties}}
+            <p>No properties found.</p>
+        {{/properties}}
+    {{/hasSearch}}
 
 </body>
 </html>
