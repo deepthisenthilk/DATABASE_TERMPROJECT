@@ -1,6 +1,7 @@
 package uga.group1.cs4370.controller;
 
 import uga.group1.cs4370.service.SearchService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,11 +22,22 @@ public class SearchController {
             @RequestParam(required = false, defaultValue = "0") double minPrice,
             @RequestParam(required = false, defaultValue = "100000000") double maxPrice,
             @RequestParam(required = false, defaultValue = "0") int bedrooms,
+            HttpSession session,
             Model model) {
 
-        if (!city.isEmpty()) {
+        // Require login
+        if (session.getAttribute("user") == null) {
+            return "redirect:/login";
+        }
+
+        String trimmedCity = city.trim();
+        boolean hasSearch = !trimmedCity.isEmpty();
+
+        model.addAttribute("hasSearch", hasSearch);
+
+        if (hasSearch) {
             model.addAttribute("properties",
-                    searchService.search(city, minPrice, maxPrice, bedrooms));
+                    searchService.search(trimmedCity, minPrice, maxPrice, bedrooms));
         }
 
         return "search";
