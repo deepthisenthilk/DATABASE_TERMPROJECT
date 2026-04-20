@@ -25,12 +25,7 @@ public class PageController {
         return "signup";
     }
 
-    // Search page
-    @GetMapping("/search")
-    public String search(Model model) {
-        return "search";
-    }
-
+    
     // Property details page
     @GetMapping("/property")
     public String propertyDetails() {
