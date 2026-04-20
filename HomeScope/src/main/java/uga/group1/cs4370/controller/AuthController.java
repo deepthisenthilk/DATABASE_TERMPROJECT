@@ -5,7 +5,9 @@ import uga.group1.cs4370.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class AuthController {
@@ -19,9 +21,9 @@ public class AuthController {
     // Logging in
     @PostMapping("/login")
     public String login(@RequestParam String email,
-            @RequestParam String password,
-            HttpSession session,
-            Model model) {
+                        @RequestParam String password,
+                        HttpSession session,
+                        Model model) {
 
         User user = userService.login(email, password);
 
@@ -37,9 +39,9 @@ public class AuthController {
     // Signing up
     @PostMapping("/signup")
     public String signup(@RequestParam String fullName,
-            @RequestParam String email,
-            @RequestParam String password,
-            Model model) {
+                         @RequestParam String email,
+                         @RequestParam String password,
+                         Model model) {
 
         boolean success = userService.registerUser(fullName, email, password);
 
