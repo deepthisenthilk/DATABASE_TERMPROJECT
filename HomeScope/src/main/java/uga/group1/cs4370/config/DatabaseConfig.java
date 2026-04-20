@@ -17,8 +17,10 @@ public class DatabaseConfig {
 
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/homescope_db");
-        dataSource.setUsername("root"); // change if needed
-        dataSource.setPassword(""); // change if needed
+
+
+        dataSource.setUsername("mysql-server-x370");
+        dataSource.setPassword("mysqlpass");
 
         return dataSource;
     }
