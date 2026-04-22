@@ -32,15 +32,4 @@ public class PageController {
         return "property-details";
     }
 
-    // Saved properties page
-    @GetMapping("/saved-properties")
-    public String savedProperties() {
-        return "saved-properties";
-    }
-
-    // Dashboard page
-    @GetMapping("/dashboard")
-    public String dashboard() {
-        return "dashboard";
-    }
 }
