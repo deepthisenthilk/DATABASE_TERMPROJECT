@@ -18,6 +18,7 @@ Username: mysql-server-x370
 Password: mysqlpass
 
 Test Users:
+1. test@example.com -> password: test
 
 
 Application Features:
