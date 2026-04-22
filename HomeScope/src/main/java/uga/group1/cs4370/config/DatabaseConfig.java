@@ -19,7 +19,7 @@ public class DatabaseConfig {
         dataSource.setUrl("jdbc:mysql://localhost:33306/homescope_db");
 
 
-        dataSource.setUsername("mysql-server-x370");
+        dataSource.setUsername("root");
         dataSource.setPassword("mysqlpass");
 
         return dataSource;
