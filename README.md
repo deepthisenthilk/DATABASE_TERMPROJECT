@@ -19,6 +19,8 @@ Password: mysqlpass
 
 Test Users:
 1. test@example.com -> password: test
+2.  alice@example.com -> password: hash1
+3.  bob@example.com -> password: hash2
 
 
 Application Features:
