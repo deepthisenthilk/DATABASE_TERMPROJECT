@@ -16,7 +16,7 @@ public class DatabaseConfig {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/homescope_db");
+        dataSource.setUrl("jdbc:mysql://localhost:33306/homescope_db");
 
 
         dataSource.setUsername("mysql-server-x370");
