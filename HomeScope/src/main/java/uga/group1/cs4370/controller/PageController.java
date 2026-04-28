@@ -25,7 +25,6 @@ public class PageController {
         return "signup";
     }
 
-    
     // Property details page
     @GetMapping("/property")
     public String propertyDetails() {
