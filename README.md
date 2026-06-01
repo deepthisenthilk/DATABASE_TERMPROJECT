@@ -1,4 +1,4 @@
-# DATABASE_TERMPROJECT
+# HomeScope
 
 Users can search for properties, browse comprehensive listings, save their favorite properties, and examine housing market trends with HomeScope, an online tool for housing market analysis.
 
